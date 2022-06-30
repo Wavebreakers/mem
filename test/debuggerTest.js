@@ -38,7 +38,7 @@ setInterval(() => {
   }
 }, timeout);
 
-// Don't forget to detatch the debugger!
-// memoryjs.detatchDebugger(processId);
+// Don't forget to detach the debugger!
+// memoryjs.detachDebugger(processId);
 
 memoryjs.closeProcess(processObject.handle);

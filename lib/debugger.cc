@@ -11,16 +11,16 @@
 #include "debugger.h"
 #include "module.h"
 
-bool debugger::attach(DWORD processId, bool killOnDetatch) {
+bool debugger::attach(DWORD processId, bool killOnDetach) {
   if (DebugActiveProcess(processId) == 0) {
     return false;
   }
   
-  DebugSetProcessKillOnExit(killOnDetatch);
+  DebugSetProcessKillOnExit(killOnDetach);
   return true;
 }
 
-bool debugger::detatch(DWORD processId) {
+bool debugger::detach(DWORD processId) {
   return DebugActiveProcessStop(processId) != 0;
 }
 

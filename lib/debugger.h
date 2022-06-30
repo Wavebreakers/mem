@@ -68,8 +68,8 @@ struct DebugEvent {
 };
 
 namespace debugger {
-  bool attach(DWORD processId, bool killOnDetatch);
-  bool detatch(DWORD processId);
+  bool attach(DWORD processId, bool killOnDetach);
+  bool detach(DWORD processId);
   bool setHardwareBreakpoint(DWORD processId, DWORD64 address, Register reg, int trigger, int size);
   bool awaitDebugEvent(DWORD millisTimeout, DebugEvent *info);
   bool handleDebugEvent(DWORD processId, DWORD threadId);

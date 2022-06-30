@@ -12,7 +12,7 @@ const trigger = memoryjs.TRIGGER_ACCESS;
 const dataType = memoryjs.INT;
 
 // Whether to end the process once debugging has finished
-const killOnDetatch = false;
+const killOnDetach = false;
 
 /**
  * Example 1: Using the `Debugger` wrapper class.
@@ -25,7 +25,7 @@ const killOnDetatch = false;
 const hardwareDebugger = memoryjs.Debugger;
 
 // Attach the debugger to the process
-hardwareDebugger.attach(processId, killOnDetatch);
+hardwareDebugger.attach(processId, killOnDetach);
 
 const registerUsed = hardwareDebugger.setHardwareBreakpoint(processId, address, trigger, dataType);
 
@@ -41,7 +41,7 @@ hardwareDebugger.on(registerUsed, (event) => {
   console.log(event);
 });
 
-// Don't forget to call `hardwareDebugger.detatch()` when you're done!
+// Don't forget to call `hardwareDebugger.detach()` when you're done!
 
 /**
  * Example 2: Manually using the exposed functions
@@ -55,10 +55,10 @@ hardwareDebugger.on(registerUsed, (event) => {
  *    You also need to manually reference the size of the data type.
  * 3. Constantly call `awaitDebugEvent` to wait for debug events
  * 4. When a debug event occurs, call `handleDebugEvent`
- * 5. Don't forget to detatch the debugger via `memoryjs.detatch(processId)`
+ * 5. Don't forget to detach the debugger via `memoryjs.detach(processId)`
  */
 
-memoryjs.attachDebugger(processId, killOnDetatch);
+memoryjs.attachDebugger(processId, killOnDetach);
 
 // There are 4 hardware registers:
 // `memoryjs.DR0` through `memoryjs.DR3`
@@ -86,7 +86,7 @@ setInterval(() => {
   }
 }, timeout);
 
-// Don't forget to detatch the debugger!
-// memoryjs.detatchDebugger(processId);
+// Don't forget to detach the debugger!
+// memoryjs.detachDebugger(processId);
 
 memoryjs.closeProcess(processObject.handle);

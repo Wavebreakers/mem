@@ -8,3 +8,4 @@ test/vcxproj/Debug
 test/vcxproj/Release
 test/*.exe
 test/.vs
+prompt*
